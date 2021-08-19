@@ -1,0 +1,11 @@
+{
+  "name": "clean-arch-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Odilomar/clean-arch.git",
+  "author": "Odilomar <odilomarjunior.contact@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^2.23.0"
+  }
+}
