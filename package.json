@@ -6,11 +6,19 @@
   "author": "Odilomar <odilomarjunior.contact@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:dev": "nodemon src/index.js"
+    "prestart": "yarn migration:run",
+    "start": "nodemon src/index.js",
+    "migration:run": "npx sequelize db:migrate",
+    "migration:create": "npx sequelize migration:create",
+    "docker": "docker-compose up -d",
+    "docker:drop": "docker rm clean_arch_db -f",
+    "docker:reload": "yarn docker:drop && yarn docker"
   },
   "dependencies": {
     "date-fns": "^2.23.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "pg": "^8.7.1",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
