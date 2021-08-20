@@ -6,6 +6,7 @@ export default function buildMakeUser({ Birth, Name, Email }) {
     email,
     created_at = new Date(),
     updated_at = new Date(),
+    deleted_at = null,
   }) {
     if (Name.validate(name)) throw new Error("Name is invalid!");
     if (Birth.validate(birth)) throw new Error("Birth is invalid!");
@@ -18,6 +19,7 @@ export default function buildMakeUser({ Birth, Name, Email }) {
       getEmail: () => email,
       getCreatedAt: () => created_at,
       getUpdatedAt: () => updated_at,
+      getDeletedAt: () => deleted_at,
     });
   };
 }
