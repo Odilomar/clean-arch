@@ -5,7 +5,16 @@
   "repository": "git@github.com:Odilomar/clean-arch.git",
   "author": "Odilomar <odilomarjunior.contact@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon src/index.js"
+  },
   "dependencies": {
-    "date-fns": "^2.23.0"
+    "date-fns": "^2.23.0",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "sequelize-cli": "^6.2.0"
   }
 }
