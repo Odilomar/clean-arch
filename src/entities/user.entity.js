@@ -1,4 +1,4 @@
-export default function buildMakeUser({ Birth, Name, Email }) {
+module.exports = function buildMakeUser({ Birth, Name, Email }) {
   return function makeUser({
     id,
     name,
@@ -22,4 +22,4 @@ export default function buildMakeUser({ Birth, Name, Email }) {
       getDeletedAt: () => deleted_at,
     });
   };
-}
+};

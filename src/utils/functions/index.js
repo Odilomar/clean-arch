@@ -1,1 +1,3 @@
-export * from "./validations";
+const validations = require("./validations");
+
+module.exports = validations;

@@ -12,7 +12,7 @@ app.get("/status", (req, res) => {
   });
 });
 
-app.get("/user/:id", getUser);
-app.post("/user", postUser);
+// app.get("/user/:id", getUser);
+// app.post("/user", postUser);
 
 app.listen(3000);

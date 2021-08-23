@@ -1,4 +1,4 @@
-import buildMakeUser from "./user.entity";
-import { Birth, Name, Email } from "../utils";
+const buildMakeUser = require("./user.entity");
+const { Birth, Name, Email } = require("../utils");
 
-export default makeUser = buildMakeUser({ Birth, Name, Email });
+module.exports = buildMakeUser({ Birth, Name, Email });

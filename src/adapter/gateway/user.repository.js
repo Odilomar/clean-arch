@@ -1,6 +1,6 @@
 const { User } = require("../../database/models");
 
-export function buildUserRepository() {
+function buildUserRepository() {
   return async function userRepository() {
     return Object.freeze({
       create: ({ name, birth, email }) => User.create({ name, birth, email }),
@@ -8,3 +8,5 @@ export function buildUserRepository() {
     });
   };
 }
+
+module.exports = buildUserRepository;

@@ -1,3 +1,5 @@
-const { buildUserRepository } = require("./gateway/user.repository");
+const buildUserRepository = require("./gateway/user.repository");
 
-export const userRepository = buildUserRepository();
+const userRepository = buildUserRepository();
+
+module.exports = userRepository;

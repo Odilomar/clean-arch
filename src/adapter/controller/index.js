@@ -11,5 +11,5 @@ const userController = Object.freeze({
   postUser,
 });
 
-export default userController;
-export { getUser, postUser };
+// export default userController;
+module.exports = { getUser, postUser };

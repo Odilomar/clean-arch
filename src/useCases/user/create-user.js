@@ -1,6 +1,6 @@
-import makeUser from "../../entities";
+const makeUser = require("../../entities");
 
-export default function buildCreateUser({ userRepository }) {
+module.exports = function buildCreateUser({ userRepository }) {
   return async function createUser({ createUserDto }) {
     const user = makeUser(createUserDto);
 
@@ -19,4 +19,4 @@ export default function buildCreateUser({ userRepository }) {
       deleted_at: user.getDeletedAt(),
     });
   };
-}
+};

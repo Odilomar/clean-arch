@@ -1,4 +1,4 @@
-export default function buildGetUser({ findUser }) {
+module.exports = function buildGetUser({ findUser }) {
   return async function getUser(request, response) {
     const headers = {
       "Content-Type": "application/json",
@@ -15,4 +15,4 @@ export default function buildGetUser({ findUser }) {
       return response.statusCode(400).json({ error: e.message });
     }
   };
-}
+};

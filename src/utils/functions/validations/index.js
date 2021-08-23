@@ -1,3 +1,9 @@
-export * from "./birth.validation";
-export * from "./email.validation";
-export * from "./name.validation";
+const birth = require("./birth.validation");
+const email = require("./email.validation");
+const name = require("./name.validation");
+
+module.exports = {
+  birth,
+  email,
+  name,
+};

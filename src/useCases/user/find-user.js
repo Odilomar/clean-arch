@@ -1,7 +1,7 @@
-export default function buildFindUser({ userRepository }) {
+module.exports = function buildFindUser({ userRepository }) {
   return async function findUser({ findUserDto = {} }) {
     console.log({ ...findUserDto });
 
     return userRepository.findOne("Odilomar");
   };
-}
+};

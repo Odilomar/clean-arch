@@ -1,1 +1,3 @@
-export * from "./functions";
+const functions = require("./functions");
+
+module.exports = functions;
