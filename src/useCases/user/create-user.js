@@ -5,7 +5,7 @@ module.exports = function buildCreateUser({ userRepository }) {
     const user = makeUser({ ...createUserDto });
 
     const existsUser = await userRepository.findOneByEmail(user.getEmail());
-    if (existsUser) return existsUser;
+    if (existsUser) return existsUser.dataValues;
 
     return userRepository.create({
       name: user.getName(),

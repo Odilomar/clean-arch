@@ -6,9 +6,7 @@ module.exports = function buildPostUser({ createUser }) {
 
       return response.json({ ...posted });
     } catch (e) {
-      console.log(e);
-
-      return response.statusCode(400).json({ error: e.message });
+      return response.status(400).json({ error: e.message });
     }
   };
 };
