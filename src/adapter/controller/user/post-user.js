@@ -4,7 +4,7 @@ module.exports = function buildPostUser({ createUser }) {
       const { ...userInfo } = request.body;
       const posted = await createUser({ ...userInfo });
 
-      return response.json({ posted });
+      return response.json({ ...posted });
     } catch (e) {
       console.log(e);
 

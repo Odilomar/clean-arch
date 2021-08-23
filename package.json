@@ -15,11 +15,13 @@
     "docker:reload": "yarn docker:drop && yarn docker"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "pg": "^8.7.1",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.12",
