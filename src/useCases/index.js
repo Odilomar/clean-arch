@@ -1,5 +1,6 @@
-import buildCreateUser from "./user/create-user";
-import buildFindUser from "./user/find-user";
+const buildCreateUser = require("./user/create-user");
+const buildFindUser = require("./user/find-user");
+const userRepository = require("../adapter");
 
 const createUser = buildCreateUser({ userRepository });
 const findUser = buildFindUser({ userRepository });
