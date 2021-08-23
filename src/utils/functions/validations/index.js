@@ -1,9 +1,9 @@
-const birth = require("./birth.validation");
-const email = require("./email.validation");
-const name = require("./name.validation");
+const validateBirth = require("./birth.validation");
+const validateEmail = require("./email.validation");
+const validateName = require("./name.validation");
 
 module.exports = {
-  birth,
-  email,
-  name,
+  validateBirth,
+  validateEmail,
+  validateName,
 };

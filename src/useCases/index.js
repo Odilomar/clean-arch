@@ -5,10 +5,4 @@ const userRepository = require("../adapter");
 const createUser = buildCreateUser({ userRepository });
 const findUser = buildFindUser({ userRepository });
 
-// const userService = Object.freeze({
-//   createUser,
-//   findUser,
-// });
-
-// export default userService;
 module.exports = { createUser, findUser };

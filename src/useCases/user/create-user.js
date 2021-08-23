@@ -1,12 +1,10 @@
 const makeUser = require("../../entities");
 
 module.exports = function buildCreateUser({ userRepository }) {
-  return async function createUser({ createUserDto }) {
-    const user = makeUser(createUserDto);
+  return async function createUser(createUserDto) {
+    const user = makeUser({ ...createUserDto });
 
-    const existsUser = await userRepository.findOne({
-      email: user.getEmail(),
-    });
+    const existsUser = await userRepository.findOneByEmail(user.getEmail());
     if (existsUser) return existsUser;
 
     return userRepository.create({

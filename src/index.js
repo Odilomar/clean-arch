@@ -3,6 +3,7 @@ const { getUser, postUser } = require("./adapter/controller");
 
 const app = express();
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/status", (req, res) => {
@@ -12,7 +13,7 @@ app.get("/status", (req, res) => {
   });
 });
 
-// app.get("/user/:id", getUser);
-// app.post("/user", postUser);
+app.get("/users/:id", getUser);
+app.post("/users", postUser);
 
 app.listen(3000);

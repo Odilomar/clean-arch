@@ -1,4 +1,8 @@
-module.exports = function buildMakeUser({ Birth, Name, Email }) {
+module.exports = function buildMakeUser({
+  validateBirth,
+  validateName,
+  validateEmail,
+}) {
   return function makeUser({
     id,
     name,
@@ -8,9 +12,9 @@ module.exports = function buildMakeUser({ Birth, Name, Email }) {
     updated_at = new Date(),
     deleted_at = null,
   }) {
-    if (Name.validate(name)) throw new Error("Name is invalid!");
-    if (Birth.validate(birth)) throw new Error("Birth is invalid!");
-    if (Email.validate(email)) throw new Error("Email is invalid!");
+    if (validateName(name)) throw new Error("Name is invalid!");
+    if (validateBirth(birth)) throw new Error("Birth is invalid!");
+    if (validateEmail(email)) throw new Error("Email is invalid!");
 
     return Object.freeze({
       getId: () => id,

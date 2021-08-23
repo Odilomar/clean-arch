@@ -1,4 +1,8 @@
 const buildMakeUser = require("./user.entity");
-const { Birth, Name, Email } = require("../utils");
+const {
+  validateBirth,
+  validateName,
+  validateEmail,
+} = require("../utils/functions/validations");
 
-module.exports = buildMakeUser({ Birth, Name, Email });
+module.exports = buildMakeUser({ validateBirth, validateName, validateEmail });

@@ -33,13 +33,13 @@ module.exports = {
         type: DataTypes.DATE,
       },
       deleted_at: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.DATE,
       },
     });
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable("Users");
+    return queryInterface.dropTable(config.tableName.user);
   },
 };
