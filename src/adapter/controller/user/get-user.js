@@ -1,5 +1,5 @@
 export default function buildGetUser({ findUser }) {
-  return async function getUser(response) {
+  return async function getUser(request, response) {
     const headers = {
       "Content-Type": "application/json",
     };
@@ -8,21 +8,11 @@ export default function buildGetUser({ findUser }) {
         userId: response.query.userId,
       });
 
-      return {
-        headers,
-        statusCode: 200,
-        body: users,
-      };
+      return response.json(users);
     } catch (e) {
       console.log(e);
 
-      return {
-        headers,
-        statusCode: 400,
-        body: {
-          error: e.message,
-        },
-      };
+      return response.statusCode(400).json({ error: e.message });
     }
   };
 }

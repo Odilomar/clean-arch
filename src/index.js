@@ -1,4 +1,5 @@
 const express = require("express");
+const { getUser, postUser } = require("./adapter/controller");
 
 const app = express();
 
@@ -10,5 +11,8 @@ app.get("/status", (req, res) => {
     message: "API Service is runing!",
   });
 });
+
+app.get("/user/:id", getUser);
+app.post("/user", postUser);
 
 app.listen(3000);
