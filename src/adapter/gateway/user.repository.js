@@ -7,6 +7,7 @@ module.exports = function buildUserRepository() {
       findOneByEmail: (email) => users.findOne({ where: { email } }),
       findOneByBirth: (birth) => users.findOne({ where: { birth } }),
       findOneByName: (name) => users.findOne({ where: { name } }),
+      findOneById: (id) => users.findOne({ where: { id } }),
     });
   };
 };

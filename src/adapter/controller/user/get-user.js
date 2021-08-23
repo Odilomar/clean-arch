@@ -4,9 +4,8 @@ module.exports = function buildGetUser({ findUser }) {
       "Content-Type": "application/json",
     };
     try {
-      const users = await findUser({
-        userId: response.query.userId,
-      });
+      const id = request.params.id;
+      const users = await findUser({ id });
 
       return response.json(users);
     } catch (e) {

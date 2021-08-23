@@ -1,7 +1,7 @@
 module.exports = function buildFindUser({ userRepository }) {
-  return async function findUser({ findUserDto = {} }) {
-    console.log({ ...findUserDto });
+  return async function findUser({ id }) {
+    if (!id) throw new Error("You need a id to find user!");
 
-    return userRepository.findOne("Odilomar");
+    return userRepository.findOneById(id);
   };
 };
