@@ -1,12 +1,32 @@
 const { config } = require("dotenv");
 
 config();
-const { DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASSWORD } = process.env;
+
+const { DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS } = process.env;
 
 module.exports = {
-  dialect: "postgres",
-  host: DB_HOST,
-  database: DB_NAME,
-  username: DB_USER,
-  password: DB_PASSWORD,
+  dev: {
+    dialect: "postgres",
+    host: String(DB_HOST),
+    port: Number(DB_PORT),
+    database: String(DB_NAME),
+    username: String(DB_USER),
+    password: String(DB_PASS),
+  },
+  docker: {
+    dialect: "postgres",
+    host: String(DB_HOST),
+    port: Number(DB_PORT),
+    database: String(DB_NAME),
+    username: String(DB_USER),
+    password: String(DB_PASS),
+  },
+  prod: {
+    dialect: "postgres",
+    host: String(DB_HOST),
+    port: Number(DB_PORT),
+    database: String(DB_NAME),
+    username: String(DB_USER),
+    password: String(DB_PASS),
+  },
 };

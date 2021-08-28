@@ -6,13 +6,12 @@
   "author": "Odilomar <odilomarjunior.contact@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prestart": "yarn migration:run",
+    "prestart": "npm run migration",
     "start": "nodemon src/index.js",
-    "migration:run": "npx sequelize db:migrate",
+    "migration": "npx sequelize db:migrate",
     "migration:create": "npx sequelize migration:create",
     "docker": "docker-compose up -d",
-    "docker:drop": "docker rm clean_arch_db -f",
-    "docker:reload": "yarn docker:drop && yarn docker"
+    "docker:drop": "docker rm clean_arch_db clean_arch_backend -f"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -20,6 +19,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5",
     "swagger-ui-express": "^4.1.6"
   },

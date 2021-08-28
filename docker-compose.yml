@@ -1,8 +1,11 @@
-# Use postgres/example user/password credentials
-version: "3.1"
+version: "3"
+
+networks:
+  clean-arch-network:
+    driver: bridge
+
 services:
   db:
-    container_name: clean_arch_db
     image: postgres
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres"]
@@ -11,10 +14,34 @@ services:
       retries: 10
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: clean
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "clean"
+    networks:
+      - clean-arch-network
     volumes:
       - ./db:/docker-entrypoint-initdb.d/
     ports:
       - 5432:5432
+
+  backend:
+    container_name: clean_arch_backend
+    image: clean_arch_backend:1.0.0
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: "docker"
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      DB_USER: "postgres"
+      DB_PASS: "postgres"
+      DB_NAME: "clean"
+    networks:
+      - clean-arch-network
+    depends_on:
+      - db
+    command: bash -c "./wait-for-it.sh db:5432 -- npm start"

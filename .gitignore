@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
+# Local files
 db
+docker-compose-example.yml
+Dockerfile-example
 

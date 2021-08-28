@@ -2,17 +2,16 @@
 
 const fs = require("fs");
 const path = require("path");
+const { config } = require("dotenv");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
-const config = require("../config/database");
+const dbConfig = require("../config/database");
+
+config();
+const { NODE_ENV } = process.env;
 
 const db = {};
-const sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
+const sequelize = new Sequelize(dbConfig[NODE_ENV]);
 
 fs.readdirSync(__dirname)
   .filter((file) => {
